@@ -8,8 +8,11 @@ Tipizza tutte le variabili, funzioni e strutture dati in modo esplicito, e verif
 
 // dashboard delle città
 
+
 import axios from "axios";
 
+
+// il tipo della funzione deve essere lo stesso dei dati passati nel return
 async function getDashboardData(query: string): Promise<{ city: string; country: string; airport: string; temperature: number; weather: string }> {
 
   const [destination, airports, weather] = await Promise.all([
