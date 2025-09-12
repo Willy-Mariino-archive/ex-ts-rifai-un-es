@@ -10,7 +10,7 @@ Tipizza tutte le variabili, funzioni e strutture dati in modo esplicito, e verif
 
 import axios from "axios";
 
-async function getDashboardData(query: string) {
+async function getDashboardData(query: string): Promise<{ city: string; country: string; airport: string; temperature: number; weather: string }> {
 
   const [destination, airports, weather] = await Promise.all([
     axios.get(`http://localhost:3333/destinations?search=${query}`),
@@ -35,6 +35,7 @@ async function getDashboardData(query: string) {
   // destination = indica da quale API sto prendendo i dati 
   // data = proprietà aggiunta da axios che contiene SOLO i dati grezzi dell’API escludendo cose come lo status della chiamata
   // name = campo reale restituito dall’API, cioè la stringa che voglio estrarre e mostrare in pagina, per esempio estraendo weather_description mostro: "cloudy"
+
   // quindi se volessi aggiungere i cibi che sono strutturati così: local_dishes:  (3) ['Fish and Chips', 'Full English Breakfast', 'Sunday Roast'] 
 } // dovrei aggiungere al return: foods: destination.data[0].local_dishes
 
